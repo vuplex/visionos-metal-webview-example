@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -11,6 +12,9 @@ TagManager:
   - 
   - Water
   - UI
+  - PlacementObject
+  - Placeable Surface
+  - Spawner Contact
   - 
   - 
   - 
@@ -32,12 +36,15 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - XR Simulation
+  - PolySpatial
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PolySpatial
+    uniqueID: 3832034613
+    locked: 0
+  - name: PolySpatialUI
+    uniqueID: 2660214765
     locked: 0
