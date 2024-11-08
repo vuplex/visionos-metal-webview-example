@@ -8,9 +8,9 @@ class HeightAdjuster : MonoBehaviour {
     void Update() {
 
         var height = Camera.main.transform.localPosition.y;
+        var pos = transform.localPosition;
+        transform.localPosition = new Vector3(pos.x, height, pos.z);
         if (height != 0) {
-            var pos = transform.localPosition;
-            transform.localPosition = new Vector3(pos.x, height, pos.z);
             enabled = false;
         }
     }

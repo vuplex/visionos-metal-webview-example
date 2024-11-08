@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: VisionOS Runtime Settings
   m_EditorClassIdentifier: 
   m_InitializeHandTrackingOnStartup: 1
+  m_SetTargetFrameRateOnStartup: 1
+  m_InitialMinimumFrameRepeatCount: 0
