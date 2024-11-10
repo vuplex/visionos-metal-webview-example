@@ -1,52 +1,35 @@
-# visionOS VR WebView Example
+# visionOS Metal WebView Example
 
-This Unity project demonstrates how to view and interact with web content in VR on Apple Vision Pro using [Vuplex 3D WebView](https://developer.vuplex.com/webview/overview). All you need to do is import 3D WebView for visionOS into the project and then build one of the following example scenes for visionOS:
+This Unity project demonstrates how to view and interact with web content on Apple Vision Pro using [Vuplex 3D WebView](https://developer.vuplex.com/webview/overview) with Unity's [Metal app mode](https://docs.unity3d.com/Packages/com.unity.xr.visionos@2.0/api/UnityEditor.XR.VisionOS.VisionOSSettings.AppMode.html?q=appmode) for visionOS. All you need to do is import [3D WebView for visionOS](https://store.vuplex.com/webview/visionos/). The [VisionOSMetalWebViewExample.cs](Assets/Scripts/VisionOSMetalWebViewExample.cs) script demonstrates how to use 3D WebView's [scripting APIs](https://developer.vuplex.com/webview/IWebView), and you can also toggle the script's PassthroughEnabled field to toggle passthrough (enabled by default).
 
-- Scenes/XritWebViewDemo.unity: Demonstrates interaction with a [CanvasWebViewPrefab](https://developer.vuplex.com/webview/CanvasWebViewPrefab) using [XR Interaction Toolkit](https://support.vuplex.com/articles/xr-interaction-toolkit).
-- Scenes/InputSystemWebViewDemo.unity: Demonstrates interaction with a [CanvasWebViewPrefab](https://developer.vuplex.com/webview/CanvasWebViewPrefab) using the [Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/index.html) package's [InputSystemUIInputModule](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/api/UnityEngine.InputSystem.UI.InputSystemUIInputModule.html).
+Notes:
 
+- 3D WebView's native visionOS plugin can't run in the editor, so a [mock webview](https://support.vuplex.com/articles/mock-webview) implementation is used by default while running in the editor unless [3D WebView for Windows and macOS](https://store.vuplex.com/webview/windows-mac) is also installed.
 
-![Screenshot of running the XritWebViewDemo.unity scene in the visionOS simulator](screenshot.png)
+- There is not currently an example of interacting with the non-Canvas [WebViewPrefab](https://developer.vuplex.com/webview/WebViewPrefab) on visionOS.
 
-Please note that there is not currently an example of interacting with the non-Canvas [WebViewPrefab](https://developer.vuplex.com/webview/WebViewPrefab) on visionOS.
+![Screenshot of running the project in the visionOS simulator](screenshot.png)
 
 ## Steps taken to create this project
 
-1. Created a new project with Unity 2022.3.22 using the built-in 3D project template. 3D WebView for visionOS requires Unity 2022.3.19 or newer.
-2. Opened the Unity Package Manager and did the following:
-    - Imported v1.1.6 of the [Apple visionOS XR Plugin](https://docs.unity3d.com/Packages/com.unity.xr.visionos@1.0/manual/index.html) package (com.unity.xr.visionos). 3D WebView for visionOS requires this package to be v1.1 or newer.
-    - On the page for the com.unity.xr.visionos package, clicked on the "Samples" tab and clicked "Import" button for "VR Sample - Built-in".
-    - Imported the [XR Interaction Toolkit package](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.5/manual/index.html) (com.unity.xr.interaction.toolkit).
-3. Made the following copies of the VR sample scenes:
+1. Downloaded v2.0.4 of Unity's [visionOS template project](https://drive.google.com/drive/folders/1Oe-6bBCCmk7okbK832HWiYFbM8mV0XrZ) and opened it with Unity 6 (6000.0.25).
+2. Opened the Unity Package Manager window, navigated to the page for the installed com.unity.xr.visionos package, clicked on the package's "Samples" tab, and then clicked the "Import" button for "Metal Sample - URP".
+3. Made a copy of the visionOS Metal sample scene named VisionOSMetalWebViewExample:
 
 ```sh
 mkdir Assets/Scenes
-cp "Assets/Samples/Apple visionOS XR Plugin/1.x.x/VR Sample - Built-in/Scenes/Main.unity" Assets/Scenes/XritWebViewDemo.unity
-cp "Assets/Samples/Apple visionOS XR Plugin/1.x.x/VR Sample - Built-in/Scenes/InputSystem UI.unity" Assets/Scenes/InputSystemWebViewDemo.unity
+cp "Assets/Samples/Apple visionOS XR Plugin/2.0.4/Metal Sample - URP/Scenes/Main.unity" Assets/Scenes/VisionOSMetalWebViewExample.unity
 ```
 
-4. Made the following modifications to the copied XritWebViewDemo.unity scene:
+4. Made the following modifications to the copied VisionOSMetalWebViewExample.unity scene:
     - Copied and pasted the Canvas object from 3D WebView's CanvasWorldSpaceDemo scene in to the scene.
     - Deleted the scene's original "Sample Canvas" canvas and repositioned the Canvas from the CanvasWorldSpaceDemo scene to take its place.
     - Made the following changes to the Canvas object:
         - Set its Event Camera to the scene's main camera
         - Added a Tracked Device Graphic Raycaster component
         - Removed the CanvasKeyboard child object
-    - Deleted the extra unneeded objects from the original Main.unity scene, such as AnchorPlacer, Input Tester, Collider Target, Grab Interactable Left, Grab Interactable Right, Sphere, and Cube
+    - Deleted unneeded extra objects from the scene.
+    - Removed AR-related scripts from objects (e.g. AR Plane Manager).
+    - Added a "Scripting API Example" object with a VisionOSMetalWebViewExample.cs script that demonstrates how to use 3D WebView's scripting APIs and toggle the passthrough.
 
-5. Made the following modifications to the copied InputSystemWebViewDemo.unity scene:
-    - Copied and pasted the Canvas object from 3D WebView's CanvasWorldSpaceDemo scene in to the scene.
-    - Deleted the scene's original "Sample Canvas" canvas and repositioned the Canvas from the CanvasWorldSpaceDemo scene to take its place.
-    - Made the following changes to the Canvas object:
-        - Set its Event Camera to the scene's main camera
-        - Added a Tracked Device Raycaster component
-        - Removed the CanvasKeyboard child object
-
-6. Deleted the Assets/Samples directory containing the original sample scenes.
-
-7. Updated the following project settings:
-    - "XR Plug-in Management": enabled the "Apple visionOS" XR plugin
-    - "XR Plug-in Management" -> "Apple visionOS": added values for "Hand Tracking Usage Description" and "World Sensing Usage Description"
-    - Player Settings:
-        - Disabled "Show Splash Screen"
-        - Changed "Color Space" to "Linear"
+5. Deleted unneeded subdirectories from the Assets folder, such as the Assets/Samples directory containing the original sample scenes.
