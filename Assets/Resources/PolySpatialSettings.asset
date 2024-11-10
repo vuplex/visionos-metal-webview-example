@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Bits: 0
   m_DisabledTrackers: []
   m_AdditionalTextureFormats: 
-  m_DefaultVolumeCameraWindowConfiguration: {fileID: 11400000, guid: cfca9d641da824459be5edd273fb810b, type: 2}
+  m_DefaultVolumeCameraWindowConfiguration: {fileID: 11400000, guid: 780e9fdf3d43042578153145466820cf, type: 2}
   m_AutoCreateVolumeCamera: 1
   m_TransmitDebugInfo: 0
   m_EnableFallbackShaderConversion: 1
@@ -35,26 +35,26 @@ MonoBehaviour:
   m_RuntimeValidationFrameCount: 10
   m_BackingObjectsDestroyImmediate: 1
   m_ConnectionDiscoveryPort: 9877
-  m_ConnectionDiscoverySendInterval: 1
+  m_ConnectionDiscoverySendInterval: 30
   m_ConnectionDiscoveryTimeOutDuration: 5
   m_DeviceDisplayProviderParameters:
     dimensions: {x: 1830, y: 1600}
     leftEyePose:
-      position: {x: 0, y: 0, z: 0}
+      position: {x: -0.033, y: -0.02, z: -0.01}
       rotation: {x: 0, y: 0, z: 0, w: 1}
     rightEyePose:
-      position: {x: 0, y: 0, z: 0}
+      position: {x: -0.033, y: -0.02, z: -0.01}
       rotation: {x: 0, y: 0, z: 0, w: 1}
     leftProjectionHalfAngles:
-      left: -1
+      left: -1.73205
       right: 1
       top: 1
-      bottom: -1
+      bottom: -1.19175
     rightProjectionHalfAngles:
-      left: -1
+      left: -1.73205
       right: 1
       top: 1
-      bottom: -1
+      bottom: -1.19175
   m_MaterialSwapSets: []
   m_EnablePolySpatialRaycaster: 1
   m_SelectedValidationType: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_HidePolySpatialPreviewObjectsInScene: 1
   m_AlwaysLinkPolySpatialRuntime: 0
   m_PolySpatialNetworkingMode: 0
-  m_ConnectionTimeout: 5
+  m_ConnectionTimeout: 2
   m_EnableHostCameraControl: 0
   m_EnableClipping: 0
   m_SerializedServerAddresses:
