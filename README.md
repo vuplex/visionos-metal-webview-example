@@ -1,6 +1,6 @@
 # visionOS Metal WebView Example
 
-This Unity project demonstrates how to view and interact with web content on Apple Vision Pro using [Vuplex 3D WebView](https://developer.vuplex.com/webview/overview) with Unity's [Metal app mode](https://docs.unity3d.com/Packages/com.unity.xr.visionos@2.0/api/UnityEditor.XR.VisionOS.VisionOSSettings.AppMode.html?q=appmode) for visionOS. All you need to do is import [3D WebView for visionOS](https://store.vuplex.com/webview/visionos/). The [VisionOSMetalWebViewExample.cs](Assets/Scripts/VisionOSMetalWebViewExample.cs) script demonstrates how to use 3D WebView's [scripting APIs](https://developer.vuplex.com/webview/IWebView), and you can also toggle the script's PassthroughEnabled field to toggle passthrough (enabled by default).
+This Unity project demonstrates how to view and interact with web content on Apple Vision Pro using [Vuplex 3D WebView](https://developer.vuplex.com/webview/overview) with Unity's [Metal app mode](https://docs.unity3d.com/Packages/com.unity.polyspatial.visionos@2.0/manual/visionOSPlatformOverview.html#metal-rendering-with-compositor-services) for visionOS. All you need to do is import [3D WebView for visionOS](https://store.vuplex.com/webview/visionos/). The [VisionOSMetalWebViewExample.cs](Assets/Scripts/VisionOSMetalWebViewExample.cs) script demonstrates how to use 3D WebView's [scripting APIs](https://developer.vuplex.com/webview/IWebView), and you can also toggle the script's PassthroughEnabled field to toggle passthrough (enabled by default).
 
 Notes:
 
